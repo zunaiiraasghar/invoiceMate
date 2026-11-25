@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Products{% endblock %}
+{% block content %}
+<div class="page-heading"><div><div class="eyebrow">YOUR CATALOG</div><h1>Products & services</h1><p class="muted">Save the items you commonly invoice.</p></div></div>
+<div class="content-grid"><section class="panel"><div class="panel-heading"><h2>Add a product</h2></div><form method="post" class="stack-form">
+<label>Product / service name<input name="name" required placeholder="e.g. Website design"></label>
+<label>Unit price (Rs)<input name="price" type="number" min="0" step="0.01" required placeholder="0.00"></label>
+<label>Description<input name="description" placeholder="Optional short description"></label>
+<button class="button primary" type="submit">＋ Add product</button></form></section>
+<section class="panel"><div class="panel-heading"><h2>Your products <span class="count">{{ products|length }}</span></h2></div>
+{% if products %}<div class="table-wrap"><table><thead><tr><th>Item</th><th>Description</th><th>Unit price</th></tr></thead><tbody>{% for p in products %}<tr><td>{{ p.name }}</td><td>{{ p.description or '—' }}</td><td>Rs {{ '%.2f'|format(p.price) }}</td></tr>{% endfor %}</tbody></table></div>{% else %}<div class="empty-state compact"><p>No products yet. Add your first product using the form.</p></div>{% endif %}</section></div>
+{% endblock %}

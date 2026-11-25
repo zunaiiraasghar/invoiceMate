@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}InvoiceMate{% endblock %} | InvoiceMate SaaS</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="navbar">
+  <a class="brand" href="{{ url_for('home') }}"><span class="brand-mark">IM</span> InvoiceMate</a>
+  <nav>
+    <a href="{{ url_for('home') }}">Home</a>
+    {% if logged_in_user %}
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('customers_page') }}">Customers</a>
+      <a href="{{ url_for('products_page') }}">Products</a>
+      <a href="{{ url_for('invoices_page') }}">Invoices</a>
+      <a class="nav-cta" href="{{ url_for('logout') }}">Log out</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">Log in</a>
+      <a class="nav-cta" href="{{ url_for('register') }}">Get started</a>
+    {% endif %}
+  </nav>
+</header>
+<main class="page">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="flash-list">
+      {% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</main>
+<footer class="footer">InvoiceMate · Simple invoicing for small businesses</footer>
+{% include "_chatbot.html" %}
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">INVOICING MADE SIMPLE</div>
+    <h1>Run your business.<br><span>We’ll handle the invoices.</span></h1>
+    <p class="hero-text">Create invoices, organize customers, track payments, and keep your small business moving — all in one simple workspace.</p>
+    <div class="hero-actions">
+      <a class="button primary" href="{{ url_for('register') }}">Create free account <span>→</span></a>
+      <a class="button secondary" href="{{ url_for('login') }}">Log in</a>
+    </div>
+    <div class="trust-line"><span class="green-dot"></span> Simple setup · Clear records · Helpful assistant</div>
+  </div>
+  <div class="hero-visual">
+    <div class="mock-window">
+      <div class="mock-head"><span class="window-dots">● ● ●</span><span>Invoice overview</span><span>•••</span></div>
+      <div class="mock-body">
+        <div class="mock-label">TOTAL REVENUE</div><div class="mock-amount">$8,420.00 <span>↗ 12%</span></div>
+        <div class="mock-chart"><i style="height:30%"></i><i style="height:48%"></i><i style="height:38%"></i><i style="height:68%"></i><i style="height:52%"></i><i style="height:82%"></i><i style="height:72%"></i><i style="height:100%"></i></div>
+        <div class="mock-invoice"><span class="mini-icon">↗</span><div><strong>Website redesign</strong><small>INV-0042 · Example data</small></div><b>$1,250</b></div>
+        <div class="mock-invoice"><span class="mini-icon violet">✓</span><div><strong>Brand identity</strong><small>INV-0041 · Example data</small></div><b>$840</b></div>
+      </div>
+    </div>
+    <div class="floating-note"><span class="note-icon">✦</span><div><strong>Your assistant is ready</strong><small>Click “Ask InvoiceMate” below</small></div></div>
+  </div>
+</section>
+<section class="feature-section">
+  <div class="section-heading"><div class="eyebrow">EVERYTHING IN ONE PLACE</div><h2>Less paperwork. More progress.</h2><p>Keep the essentials of your invoicing workflow organized.</p></div>
+  <div class="feature-grid">
+    <article class="feature-card"><div class="feature-icon blue">▤</div><h3>Smart invoices</h3><p>Create invoices in a few fields and keep payment status up to date.</p></article>
+    <article class="feature-card"><div class="feature-icon purple">♙</div><h3>Customer records</h3><p>Store customer names and contact details in one convenient place.</p></article>
+    <article class="feature-card"><div class="feature-icon orange">✦</div><h3>Helpful assistant</h3><p>Ask the InvoiceMate chatbot how to use the app, anytime.</p></article>
+  </div>
+</section>
+<section class="bottom-cta"><div><h2>Ready to make invoicing easier?</h2><p>Create an account and explore your own dashboard.</p></div><a class="button light" href="{{ url_for('register') }}">Get started →</a></section>
+{% endblock %}

@@ -1,0 +1,28 @@
+INVOICEMATE — DEMO VIDEO SCRIPT (about 90 seconds)
+
+Scene 1 — Welcome (0:00–0:08)
+On screen: InvoiceMate home page.
+Voice-over: “Welcome to InvoiceMate, a simple SaaS platform for managing customers, products, invoices, and payments.”
+
+Scene 2 — Account and dashboard (0:08–0:20)
+On screen: Register or log in, then open Dashboard.
+Voice-over: “After signing in, the dashboard gives a quick overview of sales, unpaid amounts, and recent invoices.”
+
+Scene 3 — Customers and products (0:20–0:35)
+On screen: Add one demo customer and one demo product.
+Voice-over: “You can save customer contact details and maintain a product list with prices.”
+
+Scene 4 — Invoice management (0:35–0:52)
+On screen: Create a demo invoice, show it in the invoice list, toggle its payment status, and open View / Print.
+Voice-over: “Create invoices by entering the customer, item, quantity, and unit price. You can update payment status and print an invoice or save it as PDF.”
+
+Scene 5 — AI chatbot (0:52–1:15)
+On screen: Open InvoiceMate Assistant. Ask: “How do I create an invoice?” Then ask: “Summarize my unpaid invoices.”
+Voice-over: “InvoiceMate AI answers questions about using the platform and can summarize the signed-in user's invoice information. The AI connection uses an OpenAI API key.”
+
+Scene 6 — Closing (1:15–1:25)
+On screen: Dashboard and InvoiceMate logo/name.
+Voice-over: “InvoiceMate helps small businesses organize billing in one place. Thank you for watching.”
+
+Recording note:
+Use demo-only customer names and data. Do not show your API key, personal email, passwords, or real customer information. The AI scenes require OPENAI_API_KEY to be configured. Without it, the app runs in offline helper mode.

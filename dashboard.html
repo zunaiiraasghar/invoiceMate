@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="dash-header"><div><div class="eyebrow">YOUR WORKSPACE</div><h1>Welcome, {{ logged_in_user.name }} 👋</h1><p class="muted">Here’s a quick look at your business activity.</p></div><a class="button primary" href="{{ url_for('invoices_page') }}">＋ New invoice</a></div>
+<div class="stats-grid">
+  <div class="stat-card"><span>Total invoice value</span><strong>Rs {{ '%.2f'|format(total_sales) }}</strong><small>Across all invoices</small></div>
+  <div class="stat-card"><span>Unpaid amount</span><strong>Rs {{ '%.2f'|format(unpaid) }}</strong><small>Invoices still awaiting payment</small></div>
+  <div class="stat-card"><span>Customers</span><strong>{{ customers|length }}</strong><small>Saved customer records</small></div>
+  <div class="stat-card"><span>Products</span><strong>{{ products|length }}</strong><small>Items in your catalog</small></div>
+</div>
+<div class="quick-grid">
+  <a class="quick-card" href="{{ url_for('customers_page') }}"><span class="quick-icon blue">♙</span><div><strong>Manage customers</strong><small>Add and view customer details</small></div><b>→</b></a>
+  <a class="quick-card" href="{{ url_for('products_page') }}"><span class="quick-icon purple">▦</span><div><strong>Manage products</strong><small>Save products and their prices</small></div><b>→</b></a>
+  <a class="quick-card" href="{{ url_for('invoices_page') }}"><span class="quick-icon orange">▤</span><div><strong>Manage invoices</strong><small>Create bills and track payments</small></div><b>→</b></a>
+</div>
+<section class="panel"><div class="panel-heading"><div><h2>Recent invoices</h2><p>Latest invoices in your workspace</p></div><a href="{{ url_for('invoices_page') }}">View all →</a></div>
+{% if invoices %}
+<div class="table-wrap"><table><thead><tr><th>Invoice</th><th>Customer</th><th>Date</th><th>Total</th><th>Status</th></tr></thead><tbody>
+{% for invoice in invoices[:5] %}<tr><td>#INV-{{ '%04d'|format(invoice.id) }}</td><td>{{ invoice.customer_name }}</td><td>{{ invoice.created_at.strftime('%d %b %Y') }}</td><td>Rs {{ '%.2f'|format(invoice.total) }}</td><td><span class="status {{ invoice.status|lower }}">{{ invoice.status }}</span></td></tr>{% endfor %}
+</tbody></table></div>
+{% else %}<div class="empty-state"><div class="empty-icon">▤</div><strong>No invoices yet</strong><p>Create your first invoice to see activity here.</p><a href="{{ url_for('invoices_page') }}" class="button primary">Create an invoice</a></div>{% endif %}
+</section>
+<div class="assistant-banner"><span class="assistant-star">✦</span><div><strong>Need a hand?</strong><p>Use the “Ask InvoiceMate” chatbot in the bottom-right corner for quick help.</p></div></div>
+{% endblock %}

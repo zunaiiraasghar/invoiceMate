@@ -1,0 +1,15 @@
+<button class="chat-toggle" id="chatToggle" aria-label="Open InvoiceMate Assistant">✦ <span>Ask InvoiceMate</span></button>
+<section class="chat-panel" id="chatPanel" aria-label="InvoiceMate chatbot" hidden>
+  <div class="chat-top">
+    <div><strong>InvoiceMate Assistant</strong><small>Here to help with your invoices</small></div>
+    <button type="button" class="chat-close" id="chatClose" aria-label="Close chatbot">×</button>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-bubble bot">Hi! 👋 I can help with invoices, customers, products, and payments. What do you need?</div>
+  </div>
+  <form class="chat-form" id="chatForm">
+    <input id="chatInput" type="text" placeholder="Ask a question..." autocomplete="off" required>
+    <button type="submit" aria-label="Send message">➤</button>
+  </form>
+  <div class="chat-hint">AI assistant · offline help is available</div>
+</section>

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Customers{% endblock %}
+{% block content %}
+<div class="page-heading"><div><div class="eyebrow">YOUR CONTACTS</div><h1>Customers</h1><p class="muted">Keep customer contact details organized.</p></div></div>
+<div class="content-grid"><section class="panel"><div class="panel-heading"><h2>Add a customer</h2></div><form method="post" class="stack-form">
+<label>Customer name<input name="name" required placeholder="Customer or business name"></label>
+<label>Email<input name="email" type="email" placeholder="customer@example.com"></label>
+<label>Phone<input name="phone" placeholder="+92..."></label>
+<button class="button primary" type="submit">＋ Add customer</button></form></section>
+<section class="panel"><div class="panel-heading"><h2>Saved customers <span class="count">{{ customers|length }}</span></h2></div>
+{% if customers %}<div class="table-wrap"><table><thead><tr><th>Name</th><th>Email</th><th>Phone</th></tr></thead><tbody>{% for c in customers %}<tr><td>{{ c.name }}</td><td>{{ c.email or '—' }}</td><td>{{ c.phone or '—' }}</td></tr>{% endfor %}</tbody></table></div>{% else %}<div class="empty-state compact"><p>No customers yet. Add your first customer using the form.</p></div>{% endif %}</section></div>
+{% endblock %}

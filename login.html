@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Log in{% endblock %}
+{% block content %}
+<section class="auth-wrap"><div class="auth-card"><div class="eyebrow">WELCOME BACK</div><h1>Log in to InvoiceMate</h1><p class="muted">Your business workspace is waiting.</p>
+<form method="post" class="stack-form">
+<label>Email address<input name="email" type="email" required placeholder="you@example.com"></label>
+<label>Password<input name="password" type="password" required placeholder="Your password"></label>
+<button class="button primary full" type="submit">Log in →</button>
+</form><p class="auth-switch">New to InvoiceMate? <a href="{{ url_for('register') }}">Create an account</a></p></div></section>
+{% endblock %}
